@@ -30,7 +30,7 @@ Nbody6ppGPU:
 # just an example on a simple laptop
 # note the order of building appears to matter !!!
 install_nbody6:  nbody6
-	(cd nbody6/GPU2 ;  make clean; make sse ; cp run/nbody7.sse $(NEMOBIN))
+	(cd nbody6/GPU2 ;  make clean; make sse ; cp run/nbody7b.sse $(NEMOBIN))
 	(cd nbody6/Ncode ; make clean; make     ; cp nbody6         $(NEMOBIN))
 
 # just an example on a simple laptop
@@ -67,12 +67,12 @@ run1:   p.snap
 
 # nbody6 single processor
 run2:   p.snap
-	time runbody6 p.snap run2 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05 nbody6=1 exe=nbody6 
+	time runbody6 p.snap run2 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05 nbody6=1 exe=nbody6
 	snapprint run2/OUT3.snap key,x,y,z,vx,vy,vz times=1 | head -4
 
 # nbody6 SSE multiprocessor
 run3:   p.snap
-	time runbody6 p.snap run3 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05 nbody6=1 exe=nbody7.sse
+	time runbody6 p.snap run3 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05 nbody6=1 exe=nbody7b.sse
 	snapprint run3/OUT3.snap key,x,y,z,vx,vy,vz times=1 | head -4
 
 # nbody6++.AVX mode
@@ -82,7 +82,7 @@ run4:   p.snap
 
 #
 run9:	p.snap
-	time runbody4 p.snap run9 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05 
+	time runbody4 p.snap run9 tcrit=$(TCRIT) deltat=0.1 dtadj=0.05
 
 #       for kicks, a softened gravity run
 run0:
