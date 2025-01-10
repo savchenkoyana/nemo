@@ -13,7 +13,8 @@ include $(NEMOLIB)/makedefs
 #FFLAGS = -O
 
 #	maximum number of particles hardcoded in fortran and C version
-NMAX = 2048
+# NMAX = 2048
+NMAX = 32768
 #	Note the absence of the NDIM macro, as NDIM <> 3 is not supported
 #	in nbody0.f (yet). - july 1989 , PJT
 
