@@ -17,7 +17,7 @@ BINFILES = snapplot snapplot3 snapdiagplot snapmstat snapprint \
     snapcmp snapcmphist snapcmpplot snapsample snapstat \
     snapmnmx radprof snapkinplot \
     snapfour snapkinem snapmradii snapopt snaprstat snaptrak  \
-    snapvratio snapshell snapplotv snapfit snapkmean
+    snapvratio snapshell snapplotv snapfit snapkmean snapbinary
 TESTFILES= 
 
 help:
@@ -120,6 +120,10 @@ snapinert:  snapinert.c eigen.c
 
 snapcmp:  snapcmp.c
 	$(CC) $(CFLAGS) -DSTATISTICS -o snapcmp snapcmp.c \
+		$(NEMO_LIBS) $(EL) -lm
+
+snapbinary:  snapbinary.c
+	$(CC) $(CFLAGS) -DSTATISTICS -o snapbinary snapbinary.c \
 		$(NEMO_LIBS) $(EL) -lm
 
 snapcmphist:  snapcmp.c
