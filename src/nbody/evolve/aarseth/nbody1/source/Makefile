@@ -50,7 +50,8 @@ bench: p1280
 nmax:   .dummy
 
 PARAMS = params.h
-NMAX = 100
+# NMAX = 100
+NMAX = 32768
 
 .dummy:
 	@echo "Creating new $(PARAMS) with NMAX=$(NMAX)"
